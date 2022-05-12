@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import Menu from './components/Menu';
+import DriftPage from './components/DriftPage';
+import TimeAttackPage from './components/TimeAttackPage';
+import ForzaPage from './components/ForzaPage';
+import HomePage from './components/HomePage';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App() {
+    return (
+        <Router>
+            <div>
+                <Menu />
+                <div className="page">
+                    <Routes>
+                        <Route path="/drift" element={<DriftPage />} />
+                        <Route path="/timeattack" element={<TimeAttackPage />} />
+                        <Route path="/forza" element={<ForzaPage />} />
+                        <Route exact path="/" element={<HomePage />} />
+                    </Routes>
+                </div>
+            </div>
+        </Router>
+    );
 }
-
-export default App;
